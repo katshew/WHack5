@@ -14,7 +14,7 @@ class Analyzer:
             message = yak.message
             upvotes = yak.likes
 
-            entries += (1 + math.abs(upvotes))
+            entries += (1 + math.fabs(upvotes))
             sentiment_sum += indicoio.sentiment_hq(message) * upvotes
 
         return sentiment_sum/entries
