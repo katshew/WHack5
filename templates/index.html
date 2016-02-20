@@ -11,26 +11,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="static/bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet" />
+        <link href="static/yakstyle.css" rel="stylesheet" />
         <title>Yak Sentiment Search</title>
     </head>
 
     <body>
-        <style>
-            body {
-                padding-top: 80px;
-                padding-left: 20px;
-            }
-            
-            .navbar-form {
-                font-size: 16px;
-                padding-top: 10px;
-                border: none;
-                border-radius: 0;
-                offset: 0px;
-            }
-    
-        </style>
-
         <nav class="navbar-form navbar-default navbar-fixed-top">
             <p class="navbar-text">Search Schools</p>
             <form "navbar-form navbar-left" method=GET action="FILL IN" role="search">
@@ -58,9 +43,7 @@
         <script type="text/javascript">
             var map;
             console.log("here");
-            debugger
             function initMap() {
-             debugger
              map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: -34.397, lng: 150.644},
                 zoom: 8

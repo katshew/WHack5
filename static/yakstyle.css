@@ -1,0 +1,15 @@
+/*!
+ * Alter Bootstrap to have better navbar and maps styles  
+/*! */
+            body {
+                padding-top: 80px;
+                padding-left: 20px;
+            }
+            
+            .navbar-form {
+                font-size: 16px;
+                padding-top: 10px;
+                border: none;
+                border-radius: 0;
+                offset: 0px;
+            }
