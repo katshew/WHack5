@@ -23,7 +23,7 @@ class Analyzer:
             for index in range(len(sentiments)):
                 sentiment_sum += sentiments[index] * upvotes[index]
 
-            percent = (sentiment_sum/entries-.5)*200
+            percent = (sentiment_sum/entries-.4)*200
             message = "Positive" if percent >= 0 else "Negative"
             style = "color:green;" if percent >= 0 else "color:red;"
 
