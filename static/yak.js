@@ -1,7 +1,8 @@
 $(document).ready(function(){
 
   var onSuccess = function(data, status) {
-    console.log("worked")
+    console.log(data)
+    $("#yakresult span").text(data)
   };
 
   var onError = function(data, status) {

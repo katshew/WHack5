@@ -25,12 +25,18 @@ def index():
 def testing():
 	school = request.form["school"].encode('utf-8')
 	coords = c.get_coords_from_name(school)
-	print coords
 	yakList = a.get_yaks_by_coords(coords[0],coords[1])
+	ave = a.get_weighted_average_sentiments(yakList)
+
+	print "__________________"
+	print ave
+	print "__________________"
+
+	r = ''
 	for i in yakList:
-		print i
-		print "--------------------"
-	return str(yakList)
+		r += (i.message+'\n')
+		
+	return r
 
 
 if __name__ == "__main__":
