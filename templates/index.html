@@ -26,7 +26,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">reYAKtions</a>
+          <a class="navbar-brand">reYAKtions</a>
         </div>
         <div>
           <form class="navbar-form navbar-left" role="search" id="searchschool">
@@ -42,15 +42,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-9">
-          <script type="text/template" id="cardTemplate">
-            <!-- <iframe
-              width="600"
-              height="450"
-              frameborder="0" style="border:0"
-              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD2yggpNHNmdL3P1Y58bjy3-DzjBUh5-ME
-                &q={0}" allowfullscreen>
-            </iframe>
-          </script> -->
+          <div id="mapContainer"></div>
         </div>
         <div class="col-md-3">
           <h3> Recent Yaks: </h3>
@@ -63,6 +55,12 @@
       <ul>
         <li>${votes} upvotes: ${yak}</li>
       </ul>
+    </script>
+
+    <script id="mapTemplate" type="text/x-jQuery-tmpl">
+      <iframe width="600" height="450" frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?q={lat},{long}&key=AIzaSyD2yggpNHNmdL3P1Y58bjy3-DzjBUh5-ME" allowfullscreen>
+      </iframe>
     </script>
 
 

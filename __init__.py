@@ -12,14 +12,7 @@ GoogleMaps(app)
 
 @app.route('/')
 def index():
-	mymap = Map(
-		identifier="view-side",
-		lat=37.4419,
-		lng=-122.1419,
-		markers=[(37.4419, -122.1419)]
-	)
-
-	return render_template('index.html', mymap=mymap)
+	return render_template('index.html')
 
 @app.route('/searchSchool', methods=['POST'])
 def search():
@@ -28,12 +21,13 @@ def search():
 	yakList = a.get_yaks_by_coords(coords[0],coords[1])
 	#ave = a.get_weighted_average_sentiments(yakList)
 	#keywords = a.get_keywords_for_yaks(yakList)
-	#lis = [i.message for i in yakList]
 	yaks = []
 	for i in range(len(yakList)):
 		yaks.append({"yak":yakList[i].message, "votes":yakList[i].likes})
 
-	return jsonify({"yaks":yaks, 'coords':coords})
+	gps = [{"lat":coords[0], "long":coords[1]}]
+
+	return jsonify({"yaks":yaks, 'coords':gps})
 
 
 if __name__ == "__main__":

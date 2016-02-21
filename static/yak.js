@@ -3,6 +3,8 @@ $(document).ready(function(){
   var onSuccess = function(data, status) {
     $("#yakContainer").empty();
     $("#yakTemplate").tmpl(data.yaks).appendTo("#yakContainer");
+    $("#mapContainer").empty();
+    $("#mapTemplate").tmpl(data.coords).appendTo("#mapContainer");
   };
 
   var onError = function(data, status) {
@@ -22,5 +24,4 @@ $(document).ready(function(){
       .error(onError);
 
   });
-
 });
