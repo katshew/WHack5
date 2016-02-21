@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
   var onSuccess = function(data, status) {
-    console.log(data)
-    $("#yakresult span").text(data)
+    console.log(data.ave)
+    $("#yakresult span").text(data.yaks)
   };
 
   var onError = function(data, status) {
