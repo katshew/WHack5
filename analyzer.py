@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import indicoio, math, sys
 sys.path.append('/var/www/whack/whack/yaklient')
 from yaklient import *
@@ -23,7 +25,7 @@ class Analyzer:
             for index in range(len(sentiments)):
                 sentiment_sum += sentiments[index] * upvotes[index]
 
-            percent = (sentiment_sum/entries-.5)*200
+            percent = (sentiment_sum/entries-.4)*200
             message = "Positive" if percent >= 0 else "Negative"
             style = "color:green;" if percent >= 0 else "color:red;"
 
@@ -45,6 +47,7 @@ class Analyzer:
             count = 0
 
             for word in all_words:
+                word = word.encode('utf-8')
                 if(word != token):
                     keywords += "{\"text\":\"" + word + "\", \"weight\":" + str(count*3) + "}, "
                     count = 1
