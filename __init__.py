@@ -26,11 +26,14 @@ def search():
 	school = request.form["school"].encode('utf-8')
 	coords = c.get_coords_from_name(school)
 	yakList = a.get_yaks_by_coords(coords[0],coords[1])
-	ave = a.get_weighted_average_sentiments(yakList)
-	keywords = a.get_keywords_for_yaks(yakList)
-	lis = [i.message for i in yakList]
+	#ave = a.get_weighted_average_sentiments(yakList)
+	#keywords = a.get_keywords_for_yaks(yakList)
+	#lis = [i.message for i in yakList]
+	yaks = []
+	for i in range(len(yakList)):
+		yaks.append({"yak":yakList[i].message, "votes":yakList[i].likes})
 
-	return jsonify({'yaks':lis, 'ave':ave, 'coords':coords, 'keywords':keywords})
+	return jsonify({"yaks":yaks, 'coords':coords})
 
 
 if __name__ == "__main__":

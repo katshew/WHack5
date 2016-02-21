@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
   var onSuccess = function(data, status) {
-    console.log(data.ave)
-    $("#yakresult span").text(data.yaks)
+    $("#mapContainer").empty();
+    $("#mapTemplate").tmpl(data.yaks).appendTo("#mapContainer");
   };
 
   var onError = function(data, status) {
