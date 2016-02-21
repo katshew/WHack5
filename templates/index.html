@@ -42,23 +42,29 @@
     <div class="container">
       <div class="row">
         <div class="col-md-9">
-          <div id="mapContainer"></div>
+          <div id="mapContainer">
+            <iframe class="embed-responsive-item" width="800" height="500" frameborder="10" style="border:0"
+              src="https://www.google.com/maps/embed/v1/place?q=42.2935,-71.2639&key=AIzaSyD2yggpNHNmdL3P1Y58bjy3-DzjBUh5-ME&zoom=10" allowfullscreen>
+            </iframe>
+          </div>
         </div>
-        <div class="col-md-3">
-          <h3> Recent Yaks: </h3>
-          <div id="yakContainer"></div>
+        <div id="rightside" class="col-md-3">
+          <div id="con">
+            <h3> Recent Yaks: </h3>
+            <ul class="list-group">
+            <div id="yakContainer"> Hello World! </div>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
 
     <script id="yakTemplate" type="text/x-jQuery-tmpl">
-      <ul>
-        <li>${votes} upvotes: ${yak}</li>
-      </ul>
+        <li class="list-group-item">${votes} upvotes: ${yak}</li>
     </script>
 
     <script id="mapTemplate" type="text/x-jQuery-tmpl">
-      <iframe width="800" height="500" frameborder="10" style="border:0"
+      <iframe class="embed-responsive-item" width="800" height="500" frameborder="10" style="border:0"
         src="https://www.google.com/maps/embed/v1/place?q=${lat},${long}&key=AIzaSyD2yggpNHNmdL3P1Y58bjy3-DzjBUh5-ME&zoom=10" allowfullscreen>
       </iframe>
     </script>
