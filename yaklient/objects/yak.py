@@ -2,9 +2,9 @@
 
 """Class for a post on Yik Yak"""
 
-from yaklient import helper
-from yaklient.objects.location import Location
-from yaklient.objects.message import Message
+import helper
+from objects.location import Location
+from objects.message import Message
 
 
 # The types of Yaks

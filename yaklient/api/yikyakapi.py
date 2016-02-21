@@ -6,9 +6,9 @@ from requests import Session
 from time import time
 from urllib import urlencode, unquote
 from urlparse import urljoin
-from yaklient import settings
-from yaklient.config import get_token, get_user_agent
-from yaklient.helper import generate_id, hash_msg
+import settings
+from config import get_token, get_user_agent
+from helper import generate_id, hash_msg
 
 
 # Session for requests

@@ -1,5 +1,5 @@
 import indicoio, math, sys
-#sys.path.append('/var/www/whack/whack/yaklient')
+sys.path.append('/var/www/whack/whack/yaklient')
 from yaklient import *
 
 class Analyzer:
