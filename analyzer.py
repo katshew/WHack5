@@ -12,7 +12,7 @@ class Analyzer:
     def get_weighted_average_sentiments(self):
         sentiment_sum = 0.0
 
-        yak_info = [[yak.message, yak.likes] for yak in self.yaks]
+        yak_info = [[yak.message, yak.likes] for yak in self.yaks if yak.likes != 10000]
 
         upvotes = [yak[1] for yak in yak_info]
         sentiments = indicoio.sentiment_hq([yak[0] for yak in yak_info])
@@ -26,7 +26,7 @@ class Analyzer:
         message = "Positive" if percent >= 0 else "Negative"
         style = "color:green;" if percent >= 0 else "color:red;"
 
-        return {"percent":"{0:.2f}".format(percent), "message":message, "style":style}
+        return {"percent":"{0:.2f}".format(math.fabs(percent)), "message":message, "style":style}
 
     def get_keywords_for_yaks(self):
         keywords = ""
