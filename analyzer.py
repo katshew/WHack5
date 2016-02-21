@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import indicoio, math, sys
 #sys.path.append('/var/www/whack/whack/yaklient')
 from yaklient import *
@@ -45,6 +47,7 @@ class Analyzer:
             count = 0
 
             for word in all_words:
+                word = word.encode('utf-8')
                 if(word != token):
                     keywords += "{\"text\":\"" + word + "\", \"weight\":" + str(count*3) + "}, "
                     count = 1
