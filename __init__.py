@@ -21,7 +21,7 @@ def index():
 
 @app.route('/searchSchool', methods=['POST'])
 def testing():
-	school = request.form["school"]
+	school = request.form["school"].encode('utf-8')
 	coords = c.get_coords_from_name(school)
 	print coords
 	return "hello"
