@@ -1,2 +1,4 @@
 *.pyc
 test.py
+yaklient/api/*.pyc
+yaklient/objects/*.pyc

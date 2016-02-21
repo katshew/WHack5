@@ -9,15 +9,17 @@ class Analyzer:
         indicoio.config.api_key = 'aa6ffe32458b5e6b3c41e9b4139315ae'
 
     def get_weighted_average_sentiments(self, yaks):
-        entries = 0.0
         sentiment_sum = 0.0
 
-        for yak in yaks:
-            message = yak.message
-            upvotes = yak.likes
+        yak_info = [[yak.message, yak.likes] for yak in yaks]
 
-            entries += (1 + math.fabs(upvotes))
-            sentiment_sum += indicoio.sentiment_hq(message) * upvotes
+        upvotes = [yak[1] for yak in yak_info]
+        sentiments = indicoio.sentiment_hq([yak[0] for yak in yak_info])
+
+        entries = len(upvotes) + sum([math.fabs(upvote) for upvote in upvotes])
+
+        for index in range(len(sentiments)):
+            sentiment_sum += sentiments[index] * upvotes[index]
 
         return sentiment_sum/entries
 
