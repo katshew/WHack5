@@ -60,10 +60,10 @@ class Analyzer:
 
     def get_yaks_by_coords(self, latitude, longitude):
         try:
-            user = User(Location(42.2964, -71.2931), "AB9126086390455FA9DA7BAFB95B0D81")
-            yaks = user.get_yaks(Location(latitude, longitude))
-            self.yaks = yaks
-            return yaks
+	    user = User(Location(42.2964, -71.2931), "AB9126086390455FA9DA7BAFB95B0D81")
+	    yaks = user.get_yaks(Location(latitude, longitude))
+	    self.yaks = yaks
+    	    return yaks
         except:
             self.yaks = []
             return []

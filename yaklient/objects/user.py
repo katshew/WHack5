@@ -3,6 +3,7 @@
 """Class for a user on Yik Yak"""
 import config
 import helper
+import settings
 from api import notifyapi, parseapi, yikyakapi
 from objects.comment import Comment
 from objects.location import Location
