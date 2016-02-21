@@ -31,3 +31,11 @@ body {
     margin-right:2%;
     float:left;
 }
+
+.navbar-brand {
+    color: #3AB6C9;
+}
+
+navbar-inverse .navbar-brand {
+    color: #3AB6C9;
+}
