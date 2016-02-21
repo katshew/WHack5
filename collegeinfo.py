@@ -5,7 +5,7 @@ import re
 class Colleges():
 
     def __init__(self):
-        self.GENERALINFO = "mapsData/hd2014.csv" #'/var/www/whack/whack/hd2014.csv'
+        self.GENERALINFO = '/var/www/whack/whack/hd2014.csv'
         self.SCHOOLS = []
         self.setupInfo()
 
