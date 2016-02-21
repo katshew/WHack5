@@ -1,4 +1,3 @@
-import sqlite3 as lite
 import re
 
 class Colleges():
@@ -6,19 +5,7 @@ class Colleges():
     def __init__(self):
         self.DBNAME = 'maniyak.colleges'
         self.GENERALINFO = 'mapsData/hd2014.csv'
-
-        # self.CONN = lite.connect(self.DBNAME)
-        # self.CONN.execute('''
-        #     CREATE TABLE IF NOT EXISTS general (
-        #         UNITID  TEXT    PRIMARY KEY     NOT NULL,
-        #         NAME    TEXT                    NOT NULL,
-        #         ADDRESS    TEXT                    NOT NULL,
-        #         ADMINURL    TEXT,
-        #         SIZE    INT,
-        #         LAT     REAL                        NOT NULL,
-        #         LONG    REAL                        NOT NULL);''')
-
-        # self.setupTables()
+        self.SCHOOLS = {}
 
     def setupTables(self):
         f = open(self.GENERALINFO, 'r')
@@ -32,13 +19,15 @@ class Colleges():
 
                 try:
                     unitid = info[0]
-                    name = re.sub('\"', '', info[1])
+                    name = info[1]
 
-                    address = re.sub('\"', '', ', '.join(info[2:5]))
-                    admin_url = re.sub('\"', '', info[15])
+                    address = ', '.join(info[2:5])
+                    admin_url = info[15]
                     size = int(info[54])
                     lat = float(info[66])
                     lon = float(info[65])
+
+
                 except ValueError:
                     info[1]
                     for p in range(0, len(info)):
