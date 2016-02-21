@@ -2,11 +2,11 @@
 
 """Treat yaklient as package"""
 
-import config
-import settings
-from objects.location import Location
-from objects.user import NoBasecampSetError, TooCloseToSchoolException
-from objects.user import User
+from yaklient import config
+from yaklient import settings
+from yaklient.objects.location import Location
+from yaklient.objects.user import NoBasecampSetError, TooCloseToSchoolException
+from yaklient.objects.user import User
 
 __title__ = 'yaklient'
 __author__ = 'Akash Levy'

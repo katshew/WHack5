@@ -53,15 +53,16 @@
           </script> -->
         </div>
         <div class="col-md-3">
-          <div id="mapContainer"></div>
+          <h3> Recent Yaks: </h3>
+          <div id="yakContainer"></div>
         </div>
       </div>
     </div>
 
-    <script id="mapTemplate" type="text/x-jQuery-tmpl">
-      <div>
-        yak: ${yak}
-      </div>
+    <script id="yakTemplate" type="text/x-jQuery-tmpl">
+      <ul>
+        <li>${votes} upvotes: ${yak}</li>
+      </ul>
     </script>
 
 

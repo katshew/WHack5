@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
   var onSuccess = function(data, status) {
-    $("#mapContainer").empty();
-    $("#mapTemplate").tmpl(data.yaks).appendTo("#mapContainer");
+    $("#yakContainer").empty();
+    $("#yakTemplate").tmpl(data.yaks).appendTo("#yakContainer");
   };
 
   var onError = function(data, status) {

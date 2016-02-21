@@ -2,8 +2,8 @@
 
 """Class for a comment on Yik Yak"""
 
-import helper
-from objects.message import Message
+from yaklient import helper
+from yaklient.objects.message import Message
 
 
 class Comment(Message):

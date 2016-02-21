@@ -3,13 +3,13 @@
 """Settings for Yik Yak and Parse APIs"""
 
 import re
-import settings as settings
+import yaklient.settings as settings
 from hashlib import md5
 from random import choice, randint
 from requests import Session
 from string import ascii_uppercase, digits
-from helper import ParsingResponseError
-from objects.location import Location
+from yaklient.helper import ParsingResponseError
+from yaklient.objects.location import Location
 
 
 # Session for requests

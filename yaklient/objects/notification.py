@@ -2,8 +2,8 @@
 
 """Class for a notification on Yik Yak"""
 
-from api import notifyapi
-from helper import emoji_remove, ParsingResponseError
+from yaklient.api import notifyapi
+from yaklient.helper import emoji_remove, ParsingResponseError
 
 
 def check_notif_error(raw):

@@ -2,7 +2,7 @@
 
 """Class for a peek location on Yik Yak"""
 
-from objects.location import Location
+from yaklient.objects.location import Location
 
 
 class PeekLocation(Location):

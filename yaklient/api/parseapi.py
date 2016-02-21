@@ -7,8 +7,8 @@ from requests import Session
 from requests_oauthlib import OAuth1
 from time import tzname
 from urlparse import urljoin
-from helper import generate_id, ParsingResponseError
-import settings
+from yaklient.helper import generate_id, ParsingResponseError
+from yaklient import settings
 
 
 # Session for requests
