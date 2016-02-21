@@ -1,28 +1,30 @@
 from flask import Flask, render_template, request
 from flask_googlemaps import GoogleMaps
 from flask_googlemaps import Map
+from collegeinfo import Colleges
 
 app = Flask(__name__)
+c = Colleges()
 
 GoogleMaps(app)
 
 @app.route('/')
-def index(): 
+def index():
 	mymap = Map(
-		identifier="view-side", 
-		lat=37.4419, 
-		lng=-122.1419, 
+		identifier="view-side",
+		lat=37.4419,
+		lng=-122.1419,
 		markers=[(37.4419, -122.1419)]
 	)
-	
+
 	return render_template('index.html', mymap=mymap)
 
-@app.route('/searchSchool', methods=['POST']) 
-def testing(): 
-	return render_template('test.html', school=request.form['school'])
+@app.route('/searchSchool', methods=['POST'])
+def testing():
+	school = request.form["school"]
+	coords = c.get_coords_from_name(school)
+	print coords
+	return "hello"
 
-if __name__ == "__main__": 
+if __name__ == "__main__":
 	app.run(debug=True)
-
-
-

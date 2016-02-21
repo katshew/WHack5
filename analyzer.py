@@ -31,4 +31,4 @@ class Analyzer:
                 occ = keywords.get(word, 0)
                 keywords[word] = occ+1
 
-        return keywords                
+        return keywords
