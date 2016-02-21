@@ -20,20 +20,12 @@ class Colleges():
                 try:
                     school = {}
 
-                    unitid = info[0]
-                    name = info[1]
-                    address = ', '.join(info[2:5])
-                    admin_url = info[15]
-                    size = int(info[54])
-                    lat = float(info[66])
-                    lon = float(info[65])
-
-                    school['name'] = name
-                    school['address'] = address
-                    school['admin_url'] = admin_url
-                    school['size'] = size
-                    school['lat'] = lat
-                    school['lng'] = lon
+                    school['name'] = info[1]
+                    school['address'] = ', '.join(info[2:5])
+                    school['admin_url'] = info[15]
+                    school['size'] = int(info[54])
+                    school['lat'] = float(info[66])
+                    school['lng'] = float(info[65])
 
                     self.SCHOOLS.append(school)
                 except ValueError:
@@ -59,3 +51,7 @@ class Colleges():
     def get_size_category_from_name(self, name):
         school = self.find_school_by_name(name)
         return school['size'] if school is not None else ''
+
+    def get_school_information(self, name):
+        school = self.find_school_by_name(name)
+        return school if school is not None else {}
