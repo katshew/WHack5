@@ -28,24 +28,34 @@ class Colleges():
                     lat = float(info[66])
                     lon = float(info[65])
 
-                    school["name"] = name
-                    school["address"] = address
-                    school["admin_url"] = admin_url
-                    school["size"] = size
-                    school["lat"] = lat
-                    school["long"] = lon
+                    school['name'] = name
+                    school['address'] = address
+                    school['admin_url'] = admin_url
+                    school['size'] = size
+                    school['lat'] = lat
+                    school['lng'] = lon
 
                     self.SCHOOLS.append(school)
                 except ValueError:
-                    info[1]
-                    for p in range(0, len(info)):
-                        print str(p) + ") " + info[p]
+                    continue
 
             else:
                 continue
 
-    def get_coordinates_from_name(self, name):
+    def find_school_by_name(self, name):
         for school in self.SCHOOLS:
             if(name in school['name']):
-                return (school['lat'], school['long'])
-        return ()
+                return school
+        return None
+
+    def get_coords_from_name(self, name):
+        school = self.find_school_by_name(name)
+        return (school['lat'], school['lng']) if school is not None else ()
+
+    def get_url_from_name(self, name):
+        school = self.find_school_by_name(name)
+        return school['admin_url'] if school is not None else ''
+
+    def get_size_category_from_name(self, name):
+        school = self.find_school_by_name(name)
+        return school['size'] if school is not None else ''
