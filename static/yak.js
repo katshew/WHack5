@@ -12,6 +12,9 @@ $(document).ready(function(){
     $.post("getKeywords", {})
       .done(keywordsSuccess)
       .error(onError);
+
+    $("#mapContainer").empty();
+    $("#mapTemplate").tmpl(data.coords).appendTo("#mapContainer");
   };
 
   var weightedAveragesSuccess = function(data, status) {
@@ -39,5 +42,4 @@ $(document).ready(function(){
       .error(onError);
 
   });
-
 });
