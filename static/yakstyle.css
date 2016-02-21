@@ -13,3 +13,10 @@
                 border-radius: 0;
                 offset: 0px;
             }
+            map{
+            transform: translateZ(0px);
+    background-color: rgb(229, 227, 223);
+    height: 900px;
+    width: 900px;
+    overflow: visible;
+        }
