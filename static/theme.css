@@ -20,7 +20,7 @@ body {
 #rightside {
     float:left;
     top:10%;
-    bottom:0;
+    bottom:20%;
     right: 0;
     position:absolute;
 }
@@ -30,12 +30,4 @@ body {
     width:100%;
     margin-right:2%;
     float:left;
-}
-
-.navbar-brand {
-    color: #3AB6C9;
-}
-
-navbar-inverse .navbar-brand {
-    color: #3AB6C9;
 }
