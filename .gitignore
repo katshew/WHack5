@@ -2,3 +2,4 @@
 test.py
 yaklient/api/*.pyc
 yaklient/objects/*.pyc
+bower_components/

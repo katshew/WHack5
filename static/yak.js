@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+  var isUpdated = false;
+
   var onSuccess = function(data, status) {
     $("#sought").val("");
     $("#yakContainer").empty();
@@ -22,7 +24,13 @@ $(document).ready(function(){
   }
 
   var keywordsSuccess = function(data, status) {
-    console.log(data);
+    var words = $.parseJSON(data);
+    if(isUpdated) {
+      $("#keywords").jQCloud('update', words);
+    } else {
+      $("#keywords").jQCloud(words);
+      isUpdated = true;
+    }
   }
 
   var onError = function(data, status) {

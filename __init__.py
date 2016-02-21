@@ -35,7 +35,8 @@ def weighted():
 
 @app.route('/getKeywords', methods=['POST'])
 def keywords():
-    return jsonify({"keywords":a.get_keywords_for_yaks()})
+    # return jsonify({"keywords":a.get_keywords_for_yaks()})
+    return str(a.get_keywords_for_yaks())
 
 if __name__ == "__main__":
 	app.run(debug=True)
