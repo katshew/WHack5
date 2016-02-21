@@ -1,24 +1,20 @@
-/*!
- * Alter Bootstrap to have better navbar and maps styles
-/*! */
-
-body {
-  padding-top: 80px;
-  padding-left: 20px;
+body { 
+    font-family: 'Monda', sans-serif;
 }
 
-.navbar-form {
-  font-size: 16px;
-  padding-top: 10px;
-  border: none;
-  border-radius: 0;
-  offset: 0px;
+#map { 
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #8CF4FF;
+    text-align: center;
 }
 
-map {
-  transform: translateZ(0px);
-  background-color: rgb(229, 227, 223);
-  height: 900px;
-  width: 900px;
-  overflow: visible;
+.navbar { 
+    margin: 0px;
+    border-radius: 0px;
+}
+
+.navbar-brand { 
+    font-size: 200%;
 }
