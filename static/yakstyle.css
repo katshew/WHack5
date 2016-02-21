@@ -1,8 +1,8 @@
-body { 
+body {
     font-family: 'Monda', sans-serif;
 }
 
-#map { 
+#map {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -10,11 +10,11 @@ body {
     text-align: center;
 }
 
-.navbar { 
+.navbar {
     margin: 0px;
     border-radius: 0px;
 }
 
-.navbar-brand { 
+.navbar-brand {
     font-size: 200%;
 }

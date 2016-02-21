@@ -2,7 +2,6 @@ $(document).ready(function(){
 
   var onSuccess = function(data, status) {
     console.log(data.ave)
-    console.log(data.keywords[3])
     $("#yakresult span").text(data.yaks)
   };
 
