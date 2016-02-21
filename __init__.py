@@ -2,9 +2,11 @@ from flask import Flask, render_template, request
 from flask_googlemaps import GoogleMaps
 from flask_googlemaps import Map
 from collegeinfo import Colleges
+from analyzer import Analyzer
 
 app = Flask(__name__)
 c = Colleges()
+a = Analyzer()
 
 GoogleMaps(app)
 
@@ -24,7 +26,12 @@ def testing():
 	school = request.form["school"].encode('utf-8')
 	coords = c.get_coords_from_name(school)
 	print coords
-	return "hello"
+	yakList = a.getYaksByCoords(coords[0],coords[1])
+	for i in yakList:
+		print i
+		print "--------------------"
+	return str(yakList)
+
 
 if __name__ == "__main__":
 	app.run(debug=True)

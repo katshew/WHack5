@@ -1,4 +1,5 @@
 import indicoio, math
+from yaklient import *
 
 class Analyzer:
 
@@ -32,3 +33,8 @@ class Analyzer:
                 keywords[word] = occ+1
 
         return keywords
+
+    def getYaksByCoords(self, latitude, longitude):
+        user = User(Location(42.2964, -71.2931), "AB9126086390455FA9DA7BAFB95B0D81")
+        yaks = user.get_yaks(Location(latitude, longitude))
+        return yaks
