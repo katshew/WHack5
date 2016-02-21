@@ -34,7 +34,7 @@ class Analyzer:
 
         return keywords
 
-    def getYaksByCoords(self, latitude, longitude):
+    def get_yaks_by_coords(self, latitude, longitude):
         user = User(Location(42.2964, -71.2931), "AB9126086390455FA9DA7BAFB95B0D81")
         yaks = user.get_yaks(Location(latitude, longitude))
         return yaks

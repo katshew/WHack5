@@ -26,7 +26,7 @@ def testing():
 	school = request.form["school"].encode('utf-8')
 	coords = c.get_coords_from_name(school)
 	print coords
-	yakList = a.getYaksByCoords(coords[0],coords[1])
+	yakList = a.get_yaks_by_coords(coords[0],coords[1])
 	for i in yakList:
 		print i
 		print "--------------------"
