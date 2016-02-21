@@ -3,7 +3,7 @@
 """Abstract class for a post on Yik Yak"""
 
 from abc import abstractmethod
-from yaklient import helper
+import helper
 
 
 class Message(object):
