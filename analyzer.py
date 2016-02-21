@@ -21,16 +21,25 @@ class Analyzer:
         return sentiment_sum/entries
 
     def get_keywords_for_yaks(self, yaks):
-        keywords = {}
+        keywords = dict()
+        yak_list = [yak.message for yak in yaks]
+        words_for_yaks = indicoio.keywords(yak_list)
 
-        for yak in yaks:
-            message = yak.message
+        all_words = []
+        for word_list in words_for_yaks:
+            all_words += word_list
 
-            words_for_yak = indicoio.keywords(message)
+        all_words.sort()
+        token = all_words[0]
+        count = 0
 
-            for word in words_for_yak:
-                occ = keywords.get(word, 0)
-                keywords[word] = occ+1
+        for word in all_words:
+            if(word != token):
+                keywords[word] = count
+                count = 1
+                token = word
+            else:
+                count += 1
 
         return keywords
 
@@ -38,3 +47,6 @@ class Analyzer:
         user = User(Location(42.2964, -71.2931), "AB9126086390455FA9DA7BAFB95B0D81")
         yaks = user.get_yaks(Location(latitude, longitude))
         return yaks
+
+    def get_political_analysis(self, yaks):
+        political_sentiment = {}
