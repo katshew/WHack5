@@ -50,6 +50,8 @@
           </div>
         </div>
         <div id="rightside" class="col-md-3">
+          <div id="positivity">
+          </div>
           <div id="con">
             <h3> Recent Yaks: </h3>
             <ul class="list-group">
@@ -65,10 +67,10 @@
     </script>
 
     <script id="mapTemplate" type="text/x-jQuery-tmpl">
-      <iframe class="embed-responsive-item" width="800" height="500" frameborder="10" style="border:0"
+      <iframe id="mapframe" class="embed-responsive-item" width="800" height="500" frameborder="10" style="border:0"
         src="https://www.google.com/maps/embed/v1/place?q=${lat},${long}&key=AIzaSyD2yggpNHNmdL3P1Y58bjy3-DzjBUh5-ME&zoom=10" allowfullscreen>
       </iframe>
-      <h1>Keywords</h1>
+      <h1 class="keywords">Keywords</h1>
       <div style="width:500px;height:500px;margin-top:0%;" id="keywords"></div>
     </script>
 

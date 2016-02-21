@@ -19,18 +19,25 @@ $(document).ready(function(){
     $("#mapTemplate").tmpl(data.coords).appendTo("#mapContainer");
   };
 
+  var weightedAverageError = function(data, status) {
+    console.log("Weighted Average Function")
+    console.log("status", status);
+    console.log("error", error);
+  }
+
+  var keywordsFailure = function(data, status) {
+    console.log("Keywords Function")
+    console.log("status", status);
+    console.log("error", error);
+  }
+
   var weightedAveragesSuccess = function(data, status) {
-    console.log(data);
+    $("#positivity").html("<h2 style='" + data.style + "'>" + data.percent + "% " + data.message + "</h2>");
   }
 
   var keywordsSuccess = function(data, status) {
     var words = $.parseJSON(data);
-    // if(isUpdated) {
-      // $("#keywords").jQCloud('update', words);
-    // } else {
-       $("#keywords").jQCloud(words);
-      // isUpdated = true;
-    // }
+    $("#keywords").jQCloud(words);
   }
 
   var onError = function(data, status) {

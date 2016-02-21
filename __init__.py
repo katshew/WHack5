@@ -31,7 +31,7 @@ def search():
 
 @app.route('/getWeightedAverages', methods=['POST'])
 def weighted():
-    return jsonify({"sentiment":a.get_weighted_average_sentiments()})
+    return jsonify(a.get_weighted_average_sentiments())
 
 @app.route('/getKeywords', methods=['POST'])
 def keywords():

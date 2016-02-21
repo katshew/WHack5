@@ -22,7 +22,11 @@ class Analyzer:
         for index in range(len(sentiments)):
             sentiment_sum += sentiments[index] * upvotes[index]
 
-        return sentiment_sum/entries
+        percent = (sentiment_sum/entries-.5)*200
+        message = "Positive" if percent >= 0 else "Negative"
+        style = "color:green;" if percent >= 0 else "color:red;"
+
+        return {"percent":"{0:.2f}".format(percent), "message":message, "style":style}
 
     def get_keywords_for_yaks(self):
         keywords = ""
