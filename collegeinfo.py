@@ -38,7 +38,7 @@ class Colleges():
 
     def find_school_by_name(self, name):
         for school in self.SCHOOLS:
-            if(name.toLower() in school['name'].toLower()):
+            if(name.lower() in school['name'].lower()):
                 return school
         return None
 
