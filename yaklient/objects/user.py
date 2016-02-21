@@ -2,17 +2,17 @@
 
 """Class for a user on Yik Yak"""
 
-from yaklient import helper
-from yaklient import settings
-from yaklient.api import notifyapi, parseapi, yikyakapi
-from yaklient.objects.comment import Comment
-from yaklient.objects.location import Location
-from yaklient.objects.message import Message
-from yaklient.objects.notification import Notification, check_notif_error
-from yaklient.objects.peeklocation import PeekLocation
-from yaklient.objects.yak import Yak
-from yaklient.config import locationize_endpoint
-from yaklient.helper import ParsingResponseError
+import helper
+import settings
+from api import notifyapi, parseapi, yikyakapi
+from objects.comment import Comment
+from objects.location import Location
+from objects.message import Message
+from objects.notification import Notification, check_notif_error
+from objects.peeklocation import PeekLocation
+from objects.yak import Yak
+from config import locationize_endpoint
+from helper import ParsingResponseError
 
 
 class User(object):

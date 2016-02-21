@@ -5,7 +5,7 @@
 import json
 from requests import Session
 from urlparse import urljoin
-from yaklient import settings
+import settings
 
 
 # Session for requests
