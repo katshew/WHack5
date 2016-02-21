@@ -29,6 +29,13 @@ def search():
 
 	return jsonify({"yaks":yaks, 'coords':gps})
 
+@app.route('/getWeightedAverages', methods=['POST'])
+def weighted():
+    return jsonify({"sentiment":a.get_weighted_average_sentiments()})
+
+@app.route('/getKeywords', methods=['POST'])
+def keywords():
+    return jsonify({"keywords":a.get_keywords_for_yaks()})
 
 if __name__ == "__main__":
 	app.run(debug=True)
