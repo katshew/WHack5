@@ -1,14 +1,10 @@
 from flask import Flask, render_template, request, jsonify
-from flask_googlemaps import GoogleMaps
-from flask_googlemaps import Map
 from collegeinfo import Colleges
 from analyzer import Analyzer
 
 app = Flask(__name__)
 c = Colleges()
 a = Analyzer()
-
-GoogleMaps(app)
 
 @app.route('/')
 def index():
