@@ -32,6 +32,9 @@ $(document).ready(function(){
   }
 
   var weightedAveragesSuccess = function(data, status) {
+    if(data.message == "Neutral") {
+      alert("Could not find any yaks for that school");
+    }
     $("#positivity").html("<h2 style='" + data.style + "'>" + data.percent + "% " + data.message + "</h2>");
   }
 

@@ -10,52 +10,60 @@ class Analyzer:
         self.yaks = []
 
     def get_weighted_average_sentiments(self):
-        sentiment_sum = 0.0
+        if(len(self.yaks) > 0):
+            sentiment_sum = 0.0
 
-        yak_info = [[yak.message, yak.likes] for yak in self.yaks if yak.likes != 10000]
+            yak_info = [[yak.message, yak.likes] for yak in self.yaks if yak.likes != 10000]
 
-        upvotes = [yak[1] for yak in yak_info]
-        sentiments = indicoio.sentiment_hq([yak[0] for yak in yak_info])
+            upvotes = [yak[1] for yak in yak_info]
+            sentiments = indicoio.sentiment_hq([yak[0] for yak in yak_info])
 
-        entries = len(upvotes) + sum([math.fabs(upvote) for upvote in upvotes])
+            entries = len(upvotes) + sum([math.fabs(upvote) for upvote in upvotes])
 
-        for index in range(len(sentiments)):
-            sentiment_sum += sentiments[index] * upvotes[index]
+            for index in range(len(sentiments)):
+                sentiment_sum += sentiments[index] * upvotes[index]
 
-        percent = (sentiment_sum/entries-.5)*200
-        message = "Positive" if percent >= 0 else "Negative"
-        style = "color:green;" if percent >= 0 else "color:red;"
+            percent = (sentiment_sum/entries-.5)*200
+            message = "Positive" if percent >= 0 else "Negative"
+            style = "color:green;" if percent >= 0 else "color:red;"
 
-        return {"percent":"{0:.2f}".format(math.fabs(percent)), "message":message, "style":style}
+            return {"percent":"{0:.2f}".format(math.fabs(percent)), "message":message, "style":style}
+        return {"percent":0.0, "message":"Neutral", "style":"color:orange;"}
 
     def get_keywords_for_yaks(self):
         keywords = ""
-        yak_list = [yak.message for yak in self.yaks]
-        words_for_yaks = indicoio.keywords(yak_list)
+        if(len(self.yaks) > 0):
+            yak_list = [yak.message for yak in self.yaks]
+            words_for_yaks = indicoio.keywords(yak_list)
 
-        all_words = []
-        for word_list in words_for_yaks:
-            all_words += word_list
+            all_words = []
+            for word_list in words_for_yaks:
+                all_words += word_list
 
-        all_words.sort()
-        token = all_words[0]
-        count = 0
+            all_words.sort()
+            token = all_words[0]
+            count = 0
 
-        for word in all_words:
-            if(word != token):
-                keywords += "{\"text\":\"" + word + "\", \"weight\":" + str(count*3) + "}, "
-                count = 1
-                token = word
-            else:
-                count += 1
+            for word in all_words:
+                if(word != token):
+                    keywords += "{\"text\":\"" + word + "\", \"weight\":" + str(count*3) + "}, "
+                    count = 1
+                    token = word
+                else:
+                    count += 1
 
-        return "[" + keywords[:len(keywords)-2] + "]"
+            return "[" + keywords[:len(keywords)-2] + "]"
+        return "[{}]"
 
     def get_yaks_by_coords(self, latitude, longitude):
-        user = User(Location(42.2964, -71.2931), "AB9126086390455FA9DA7BAFB95B0D81")
-        yaks = user.get_yaks(Location(latitude, longitude))
-        self.yaks = yaks
-        return yaks
+        try:
+            user = User(Location(42.2964, -71.2931), "AB9126086390455FA9DA7BAFB95B0D81")
+            yaks = user.get_yaks(Location(latitude, longitude))
+            self.yaks = yaks
+            return yaks
+        except:
+            self.yaks = []
+            return []
 
     def get_political_analysis(self):
         political_sentiment = {}
