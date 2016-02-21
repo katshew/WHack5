@@ -3,11 +3,11 @@ import re
 class Colleges():
 
     def __init__(self):
-        self.DBNAME = 'maniyak.colleges'
         self.GENERALINFO = 'mapsData/hd2014.csv'
-        self.SCHOOLS = {}
+        self.SCHOOLS = []
+        self.setupInfo()
 
-    def setupTables(self):
+    def setupInfo(self):
         f = open(self.GENERALINFO, 'r')
         colleges = f.readlines()
 
@@ -18,16 +18,24 @@ class Colleges():
                 info = replace_quotes.split(',')
 
                 try:
+                    school = {}
+
                     unitid = info[0]
                     name = info[1]
-
                     address = ', '.join(info[2:5])
                     admin_url = info[15]
                     size = int(info[54])
                     lat = float(info[66])
                     lon = float(info[65])
 
+                    school["name"] = name
+                    school["address"] = address
+                    school["admin_url"] = admin_url
+                    school["size"] = size
+                    school["lat"] = lat
+                    school["long"] = lon
 
+                    self.SCHOOLS.append(school)
                 except ValueError:
                     info[1]
                     for p in range(0, len(info)):
@@ -35,3 +43,9 @@ class Colleges():
 
             else:
                 continue
+
+    def get_coordinates_from_name(self, name):
+        for school in self.SCHOOLS:
+            if(name in school['name']):
+                return (school['lat'], school['long'])
+        return ()
