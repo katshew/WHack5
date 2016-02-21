@@ -1,9 +1,26 @@
 $(document).ready(function(){
 
   var onSuccess = function(data, status) {
+    $("#sought").val("");
     $("#yakContainer").empty();
     $("#yakTemplate").tmpl(data.yaks).appendTo("#yakContainer");
+
+    $.post("getWeightedAverages", {})
+      .done(weightedAveragesSuccess)
+      .error(onError);
+
+    $.post("getKeywords", {})
+      .done(keywordsSuccess)
+      .error(onError);
   };
+
+  var weightedAveragesSuccess = function(data, status) {
+    console.log(data);
+  }
+
+  var keywordsSuccess = function(data, status) {
+    console.log(data);
+  }
 
   var onError = function(data, status) {
     console.log("status", status);
