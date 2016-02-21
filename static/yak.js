@@ -1,6 +1,6 @@
-$(document).ready(function(){
+var isUpdated = false;
 
-  var isUpdated = false;
+$(document).ready(function(){
 
   var onSuccess = function(data, status) {
     $("#sought").val("");
@@ -25,12 +25,12 @@ $(document).ready(function(){
 
   var keywordsSuccess = function(data, status) {
     var words = $.parseJSON(data);
-    if(isUpdated) {
-      $("#keywords").jQCloud('update', words);
-    } else {
-      $("#keywords").jQCloud(words);
-      isUpdated = true;
-    }
+    // if(isUpdated) {
+      // $("#keywords").jQCloud('update', words);
+    // } else {
+       $("#keywords").jQCloud(words);
+      // isUpdated = true;
+    // }
   }
 
   var onError = function(data, status) {
