@@ -28,7 +28,7 @@ class Analyzer:
             style = "color:green;" if percent >= 0 else "color:red;"
 
             return {"percent":"{0:.2f}".format(math.fabs(percent)), "message":message, "style":style}
-        return {"percent":0.0, "message":"Neutral", "style":"color:orange;"}
+        return {"percent":100.0, "message":"Not Available", "style":"color:orange;"}
 
     def get_keywords_for_yaks(self):
         keywords = ""

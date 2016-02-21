@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import re
+import re, googlemaps
 
 class Colleges():
 
@@ -8,6 +8,9 @@ class Colleges():
         self.GENERALINFO = '/var/www/whack/whack/hd2014.csv'
         self.SCHOOLS = []
         self.setupInfo()
+
+        # I REALLY shouldn't be doing this but hackathon        
+        self.gmaps = googlemaps.Client(key="AIzaSyDlcYxUtGE4UL5hiuxjPN3wLwOkXVHeKig")
 
     def setupInfo(self):
         f = open(self.GENERALINFO, 'r')
@@ -44,7 +47,12 @@ class Colleges():
 
     def get_coords_from_name(self, name):
         school = self.find_school_by_name(name)
-        return (school['lat'], school['lng']) if school is not None else ()
+        if(school is not None):
+            return (school['lat'], school['lng'])
+        else:
+            result = self.gmaps.geocode(name)     
+            geo = result[0]["geometry"]["location"]       
+            return (geo["lat"], geo["lng"]) 
 
     def get_url_from_name(self, name):
         school = self.find_school_by_name(name)
